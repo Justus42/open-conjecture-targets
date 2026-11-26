@@ -1,13 +1,15 @@
 # Status: Catch-Up
 
-Zuletzt geändert: 26.11.2026 (Runde 1 angehalten). Diese Datei bleibt auf einer Bildschirmseite;
+Zuletzt geändert: 26.11.2026 (Runde 2, Umwidmung). Diese Datei bleibt auf einer Bildschirmseite;
 Älteres nach `archiv/`.
 
 ## Aktuell
 
-- **Stufe:** 0 (Vortest), Runde 1 **angehalten nach Abbruchregel 3** (Protokoll 6), Ziel **ruht**
-- **Runden verbraucht:** 1 von 1 (R1-05 nicht vergeben, R1-02 unvollständig)
-- **Nächster Schritt:** Entscheidung von Justus: ruhen lassen, oder anderer Ansatz mit neuem Auftrag
+- **Entscheidung Justus 26.11.2026:** eigener Angriff beendet; Ziel umgewidmet auf Mitarbeit an
+  `bocowgill-collaborations/catch-up-research`; Abbruchregel 3 für dieses Ziel ausgesetzt.
+- **Runde 2 (nur lesen):** erledigt, Landkarte in `versuche/r2-01-landkarte.md`.
+- **Nächster Schritt:** Entscheidung von Justus: ob Beitrag CU-L039, Lean v4.27.0 ohne
+  Modulsystem (Konflikt mit Protokoll 10), Beitrag nach außen (Protokoll 9).
 
 ## Stand-Wache
 
@@ -50,3 +52,4 @@ Nichts.
 | Runde | Subagenten | Dauer | Fremdmodell-Anfragen |
 |---|---|---|---|
 | 1 | 4 (R1-01 bis R1-04) | ca. 15 Min. Rechenzeit, 26.11.2026 | 0 |
+| 2 | 1 (R2-01) | ca. 4 Min., 26.11.2026; Stand-Wache aus Runde 1 übernommen | 0 |
