@@ -1,0 +1,82 @@
+PASS  Table 2, N=3: value +0  -- program +0
+PASS  Table 2, N=4: value +0  -- program +0
+PASS  Table 2, N=5: value +1  -- program +1
+PASS  Table 2, N=6: value +1  -- program +1
+PASS  Table 2, N=7: value +0  -- program +0
+PASS  Table 2, N=8: value +0  -- program +0
+FAIL  Table 2, N=9: value -1  -- program +1
+FAIL  Table 2, N=10: value -1  -- program +1
+PASS  Table 2, N=11: value +0  -- program +0
+PASS  Table 2, N=12: value +0  -- program +0
+PASS  Table 2, N=13: value +1  -- program +1
+PASS  Table 2, N=14: value -1  -- program -1
+PASS  Table 2, N=15: value +0  -- program +0
+PASS  Table 2, N=16: value +0  -- program +0
+PASS  Table 2, N=17: value +1  -- program +1
+FAIL  Table 2, N=18: value -1  -- program +1
+PASS  Table 2, N=19: value +0  -- program +0
+PASS  Table 2, N=20: value +0  -- program +0
+PASS  Table 5 value, N=3: +0  -- program +0
+PASS  Table 5 value, N=4: +0  -- program +0
+PASS  Table 5 value, N=5: +1  -- program +1
+PASS  Table 5 value, N=6: +1  -- program +1
+PASS  Table 5 value, N=7: +0  -- program +0
+PASS  Table 5 value, N=8: +0  -- program +0
+FAIL  Table 5 value, N=9: -1  -- program +1
+FAIL  Table 5 value, N=10: -1  -- program +1
+PASS  Table 5 value, N=11: +0  -- program +0
+PASS  Table 5 value, N=12: +0  -- program +0
+PASS  Table 5 value, N=13: +1  -- program +1
+PASS  Table 5 value, N=14: -1  -- program -1
+PASS  Table 5 value, N=15: +0  -- program +0
+PASS  Table 5 value, N=16: +0  -- program +0
+PASS  Table 5 value, N=17: +1  -- program +1
+FAIL  Table 5 value, N=18: -1  -- program +1
+PASS  Sec. 3.1, even sum N=3 is a draw
+PASS  Sec. 3.1, even sum N=4 is a draw
+PASS  Sec. 3.1, even sum N=7 is a draw
+PASS  Sec. 3.1, even sum N=8 is a draw
+PASS  Sec. 3.1, even sum N=11 is a draw
+PASS  Sec. 3.1, even sum N=12 is a draw
+PASS  Sec. 3.1, even sum N=15 is a draw
+PASS  Sec. 3.1, even sum N=16 is a draw
+PASS  Sec. 3.1, even sum N=19 is a draw
+PASS  Sec. 3.1, even sum N=20 is a draw
+PASS  Fig. 2: Catch-Up({1..4}) is a draw
+FAIL  Fig. 1/2: after <3>, P2 wins with <2,4>  -- {'{1,2}': -1, '{4}': 0}
+FAIL  Sec. 2.1: after <2>, P2 can force a draw (<1,4>)  -- {'{3}': -1, '{4}': 0}
+FAIL  Fig. 3a: {1,2,4,7}:4 winning, <1,2,7> wins, 1 win / 1 draw / 6 losses of 8  -- {'{4}': -1, '{7}': 0}
+FAIL  Fig. 3b: {1,3,4,6}:4, <1,6> wins, <3,6> draws, <3,4> loses  -- {'{1,3}': -1, '{4}': -1, '{6}': 0}
+PASS  Fig. 4: {3,4,7}:2, P2 forces a win, <7> loses to <3,4>  -- {'{3}': -1, '{4}': -1, '{7}': -1}
+PASS  literal model = solver, N=1 (value and every first move)  -- literal +1 {1: 1}, solver +1 {1: 1}
+PASS  game-tree size N=1 is N!
+PASS  literal model = solver, N=2 (value and every first move)  -- literal +1 {1: -1, 2: 1}, solver +1 {1: -1, 2: 1}
+PASS  game-tree size N=2 is N!
+FAIL  literal model = solver, N=3 (value and every first move)  -- literal +0 {1: 0, 2: -1, 3: 0}, solver +0 {1: 0, 2: 0, 3: 0}
+PASS  game-tree size N=3 is N!
+PASS  Table 5 stats N=3 (branch, depth, win/tie/loss %)  -- got (3, 2, 16.67, 66.67, 16.67)
+FAIL  literal model = solver, N=4 (value and every first move)  -- literal +0 {1: 0, 2: 0, 3: -1, 4: -1}, solver +0 {1: -1, 2: 0, 3: 0, 4: 0}
+PASS  game-tree size N=4 is N!
+PASS  Table 5 stats N=4 (branch, depth, win/tie/loss %)  -- got (6, 2, 33.33, 33.33, 33.33)
+FAIL  literal model = solver, N=5 (value and every first move)  -- literal +1 {1: -1, 2: -1, 3: 1, 4: -1, 5: -1}, solver +1 {1: -1, 2: -1, 3: 1, 4: 1, 5: -1}
+PASS  game-tree size N=5 is N!
+PASS  Table 5 stats N=5 (branch, depth, win/tie/loss %)  -- got (16, 3, 50.0, 0.0, 50.0)
+FAIL  literal model = solver, N=6 (value and every first move)  -- literal +1 {1: -1, 2: 1, 3: -1, 4: -1, 5: -1, 6: -1}, solver +1 {1: -1, 2: -1, 3: -1, 4: 1, 5: 1, 6: -1}
+PASS  game-tree size N=6 is N!
+PASS  Table 5 stats N=6 (branch, depth, win/tie/loss %)  -- got (36, 3, 50.0, 0.0, 50.0)
+FAIL  literal model = solver, N=7 (value and every first move)  -- literal +0 {1: 0, 2: 0, 3: 0, 4: 0, 5: -1, 6: -1, 7: -1}, solver +0 {1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0}
+PASS  game-tree size N=7 is N!
+PASS  Table 5 stats N=7 (branch, depth, win/tie/loss %)  -- got (78, 3, 38.57, 22.86, 38.57)
+PASS  literal model = solver, N=8 (value and every first move)  -- literal +0 {1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0}, solver +0 {1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0}
+PASS  game-tree size N=8 is N!
+PASS  Table 5 stats N=8 (branch, depth, win/tie/loss %)  -- got (150, 4, 38.93, 22.14, 38.93)
+FAIL  literal model = solver, N=9 (value and every first move)  -- literal -1 {1: -1, 2: -1, 3: -1, 4: -1, 5: -1, 6: -1, 7: -1, 8: -1, 9: -1}, solver +1 {1: -1, 2: -1, 3: -1, 4: -1, 5: -1, 6: -1, 7: -1, 8: -1, 9: 1}
+PASS  game-tree size N=9 is N!
+PASS  Table 5 stats N=9 (branch, depth, win/tie/loss %)  -- got (272, 4, 50.0, 0.0, 50.0)
+FAIL  literal model = solver, N=10 (value and every first move)  -- literal -1 {1: -1, 2: -1, 3: -1, 4: -1, 5: -1, 6: -1, 7: -1, 8: -1, 9: -1, 10: -1}, solver +1 {1: 1, 2: -1, 3: -1, 4: 1, 5: 1, 6: -1, 7: -1, 8: 1, 9: -1, 10: -1}
+PASS  game-tree size N=10 is N!
+PASS  Table 5 stats N=10 (branch, depth, win/tie/loss %)  -- got (474, 4, 50.0, 0.0, 50.0)
+PASS  Fig. 5: {2,2,2,3,3} is a P1 win via <2>  -- 1 {2: 1, 3: -1}
+PASS  Sec. 2.4: N=5 line <5>,<1,3,4>,<2> is legal and ends 7-8
+
+17 failure(s)
