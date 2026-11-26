@@ -1,6 +1,11 @@
 # Protokoll: offene Einträge aus Formal Conjectures
 
-Fassung 0.2 vom 26.11.2026. Änderungen nur durch Justus.
+Fassung 0.3 vom 26.11.2026. Änderungen nur durch Justus.
+
+Änderung in 0.3: Die Stand-Wache läuft allein und zuerst (Abschnitte 3 und 7) und sucht auch nach
+fremden Repos. Anlass: Bei `catch-up` fand sie in Runde 1 ein öffentliches Projekt, das auf beiden
+Spuren weiter war, während die übrigen Aufträge schon parallel liefen. Das Scouting hatte es
+übersehen.
 
 Vorgabe von Justus (26.11.2026): Das Budget ist gut, keine schnellen Abbrüche. Die Rundenzahlen
 und die Abbruchregeln in den Abschnitten 3 und 6 sind deshalb großzügig gefasst.
@@ -35,7 +40,8 @@ die nächste Stufe beginnt nur nach Entscheidung von Justus.
 
 ### Stufe 0: Vortest (1 Runde)
 
-- Stand prüfen (Abschnitt 7).
+- **Zuerst und allein:** Stand prüfen (Abschnitt 7). Die übrigen Aufträge der Runde werden erst
+  vergeben, wenn das Ergebnis vorliegt und keine Abbruchregel greift.
 - Lean-Projekt unter `ziele/<Ziel>/lean/` anlegen, das baut und die Aussage wörtlich aus
   formal-conjectures enthält (Commit nennen).
 - Aussage und Definitionen gegen die Quelle lesen. Abweichungen sind ein Befund, kein Grund zum
@@ -138,15 +144,23 @@ Neue Ansätze für ein ruhendes Ziel darf jeder Bericht vorschlagen.
 
 ## 7. Stand prüfen vor jeder Runde
 
-Vor der Vergabe einer Runde prüft die Stand-Wache und trägt Datum und Ergebnis in den Status ein:
+Vor der Vergabe einer Runde prüft die Stand-Wache und trägt Datum und Ergebnis in den Status ein.
+Sie läuft allein; die übrigen Aufträge der Runde werden erst danach vergeben.
 
-1. formal-conjectures: `git fetch`, Verlauf der Datei des Ziels, Status-Markierung, `formal_proof`.
+1. formal-conjectures: `git fetch`, Verlauf der Datei des Ziels, Status-Markierung, `formal_proof`,
+   Verweise auf Issues und fremde Repos in der Datei und in den Commit-Texten.
 2. Palomar-Register, soweit erreichbar.
 3. arXiv und Websuche der letzten 90 Tage zu den Stichworten aus `ZIEL.md`.
-4. Zielspezifische Quellen aus `ZIEL.md` (z. B. Kourovka-Heft, Zulip-Archiv).
+4. **Fremde Repos:** Websuche nach öffentlichen Projekten zum Ziel (Name des Problems zusammen mit
+   „github“, „lean“, „repository“, „solver“). Jeden Treffer per `git` klonen und lesen: letzter
+   Commit, was bewiesen ist, was offen ist, ob um Beiträge gebeten wird.
+5. Zielspezifische Quellen aus `ZIEL.md` (z. B. Kourovka-Heft, Zulip-Archiv).
 
 Was nicht erreichbar war, steht ausdrücklich im Eintrag. Issues und Pull Requests auf GitHub sieht
 die Umgebung nicht; Justus prüft sie im Browser vor dem Start einer Stufe.
+
+Findet die Stand-Wache ein fremdes Projekt, berichtet sie neben dem Stand auch, ob dort Mitarbeit
+erwünscht ist. Ob ein Ziel dann ruht oder zur Mitarbeit umgewidmet wird, entscheidet Justus.
 
 ## 8. Aufbau des Repos
 
