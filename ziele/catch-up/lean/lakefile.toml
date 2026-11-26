@@ -1,0 +1,18 @@
+name = "catch_up"
+defaultTargets = ["CatchUp"]
+
+[leanOptions]
+# Same as formal-conjectures: no auto-bound implicits.
+autoImplicit = false
+relaxedAutoImplicit = false
+
+[[require]]
+name = "mathlib"
+git = "https://github.com/leanprover-community/mathlib4"
+rev = "v4.35.0"
+
+# Every module below `CatchUp/` belongs to this library and is built by `lake build`.
+# Further modules (sanity checks, a solution, ...) can simply be added next to `Challenge.lean`.
+[[lean_lib]]
+name = "CatchUp"
+globs = ["CatchUp.+"]
