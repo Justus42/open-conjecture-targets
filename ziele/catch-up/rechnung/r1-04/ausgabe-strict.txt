@@ -1,0 +1,87 @@
+Catch-Up({1..N}) solver, rule variant: STRICT (negative control, intentionally wrong)
+
+== Control A: example games (Fig. 1, Sec. 2.1, Sec. 2.4) ==
+  3,2,4,1 -> turns [3] [2,4] [1], final 4-6
+  [ok] Fig. 1: P2 wins 4-6 with turns <3>,<2,4>,<1>
+  2,1,4,3 -> turns [2] [1,4] [3], final 5-5
+  [ok] Sec. 2.1: draw 5-5 with <2>,<1,4>,<3>
+  5,1,3,4,2 -> turns [5] [1,3,4] [2], final 7-8
+  [ok] Sec. 2.4: P1 loses 7-8 with <5>,<1,3,4>,<2>
+
+== Control B: positions from Figs. 2-5 (generic multiset solver) ==
+  Fig. 2 {1,2,3,4}:0 value for P1 = 0
+  [ok] Fig. 2: Catch-Up({1,2,3,4}) is a draw
+  Fig. 3a {1,2,4,7}:4 moves=8 win=2 {1,2,7}{4,7} draw=1 {2,7} loss=5
+  [FAIL] Fig. 3a: 8 moves, only {1,2,7} wins, one draws, six lose
+  Fig. 3b {1,3,4,6}:4 {1,6}=-1 {3,6}=0 {3,4}=-1 value=1
+  [FAIL] Fig. 3b: <1,6> wins, <3,6> draws, <3,4> loses
+  Fig. 4 {3,4,7}:2 value=-1, {3}=-1 {4}=-1 {7}=-1
+  [ok] Fig. 4: acting player (P1) loses with every move
+  [ok] Fig. 4: after <3>, P2 must choose <7> to win
+  Fig. 5 {2,2,2,3,3}:0 value=0, first <2>=-1, first <3>=0
+  [FAIL] Fig. 5: P1 forces a win by first choosing <2>
+  Sec. 2.6 {2,4,6,8,10}:0 value=1
+  [ok] Sec. 2.6: {2,4,6,8,10} cannot be a draw
+
+bitmask values for all subsets of {1..20}: 0.64 s
+
+== Control C: bitmask solver vs generic solver ==
+  compared 11368 states, mismatches 0
+  [ok] all subsets of {1..10} x k=0..10, and roots/first moves for N<=13 agree
+
+== Results: Catch-Up({1..N}), optimal play ==
+| N | T(N) | parity | value (P1) | best first moves | count | paper Table 2 |
+|---|---|---|---|---|---|---|
+| 1 | 1 | odd | +1 (P1 wins) | 1 | 1 | - |
+| 2 | 3 | odd | +1 (P1 wins) | 2 | 1 | - |
+| 3 | 6 | even | +0 (draw) | 1,3 | 2 | 0 |
+| 4 | 10 | even | +0 (draw) | 1,2 | 2 | 0 |
+| 5 | 15 | odd | +1 (P1 wins) | 1 | 1 | 1 |
+| 6 | 21 | odd | +1 (P1 wins) | 2 | 1 | 1 |
+| 7 | 28 | even | +0 (draw) | 1,2,3 | 3 | 0 |
+| 8 | 36 | even | +0 (draw) | 1,2,5,6,7 | 5 | 0 |
+| 9 | 45 | odd | +1 (P1 wins) | 1 | 1 | -1 |
+| 10 | 55 | odd | +1 (P1 wins) | 2 | 1 | -1 |
+| 11 | 66 | even | +0 (draw) | 1,2,3,4,5,6,7,8,10 | 9 | 0 |
+| 12 | 78 | even | +0 (draw) | 1,2,3,4,5,6,7,8,9,12 | 10 | 0 |
+| 13 | 91 | odd | +1 (P1 wins) | 1 | 1 | 1 |
+| 14 | 105 | odd | +1 (P1 wins) | 1 | 1 | -1 |
+| 15 | 120 | even | +0 (draw) | 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15 | 15 | 0 |
+| 16 | 136 | even | +0 (draw) | 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16 | 16 | 0 |
+| 17 | 153 | odd | +1 (P1 wins) | 1 | 1 | 1 |
+| 18 | 171 | odd | +1 (P1 wins) | 1 | 1 | -1 |
+| 19 | 190 | even | +0 (draw) | 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19 | 19 | 0 |
+| 20 | 210 | even | +0 (draw) | 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20 | 20 | 0 |
+
+== Control D: comparison with paper ==
+  [FAIL] Table 2 (N = 3..20): all optimal-play values agree
+  [ok] Sec. 3.1: every even-sum N <= 20 is a draw
+
+| N | state space (paper def.) | = turn starts + terminals | all incl. mid-turn | value | max branch (seq/sets) | min depth | win% | tie% | loss% | P2 max pts (2N-2) |
+|---|---|---|---|---|---|---|---|---|---|---|
+| 3 | 11 (paper 11) | 7 + 4 | 14 | +0 | 3 / 3 (paper 3) | 2 (paper 2) | 16.67 | 66.67 | 16.67 | 4 (4) |
+| 4 | 29 (paper 33) | 21 + 8 | 39 | +0 | 6 / 4 (paper 6) | 2 (paper 2) | 33.33 | 33.33 | 33.33 | 7 (6) |
+| 5 | 76 (paper 90) | 66 + 10 | 102 | +1 | 20 / 8 (paper 16) | 3 (paper 3) | 50.00 | 0.00 | 50.00 | 9 (8) |
+| 6 | 202 (paper 236) | 190 + 12 | 261 | +1 | 50 / 15 (paper 36) | 3 (paper 3) | 50.00 | 0.00 | 50.00 | 11 (10) |
+| 7 | 519 (paper 591) | 505 + 14 | 640 | +0 | 108 / 27 (paper 78) | 3 (paper 3) | 38.57 | 22.86 | 38.57 | 13 (12) |
+| 8 | 1293 (paper 1453) | 1277 + 16 | 1541 | +0 | 210 / 47 (paper 150) | 3 (paper 4) | 38.93 | 22.14 | 38.93 | 15 (14) |
+| 9 | 3136 (paper 3484) | 3118 + 18 | 3628 | +1 | 384 / 78 (paper 272) | 4 (paper 4) | 50.00 | 0.00 | 50.00 | 17 (16) |
+| 10 | 7430 (paper 8174) | 7410 + 20 | 8409 | +1 | 738 / 124 (paper 474) | 4 (paper 4) | 50.00 | 0.00 | 50.00 | 19 (18) |
+| 11 | 17229 (paper 18799) | 17207 + 22 | 19170 | +0 | 1256 / 187 (paper 886) | 4 (paper 5) | 41.90 | 16.19 | 41.90 | 21 (20) |
+| 12 | 39289 (paper 42587) | 39265 + 24 | 43169 | +0 | 2132 / 276 (paper 1470) | 5 (paper 5) | 42.47 | 15.06 | 42.47 | 23 (22) |
+| 13 | 88250 (paper 95126) | 88224 + 26 | 96010 | +1 | 3444 / 395 (paper 2448) | 5 (paper 5) | 50.00 | 0.00 | 50.00 | 25 (24) |
+| 14 | 195814 (paper 210064) | 195786 + 28 | 211409 | +1 | 5514 / 556 (paper 3894) | 5 (paper 6) | 50.00 | 0.00 | 50.00 | 27 (26) |
+| 15 | 429895 (paper 459225) | 429865 + 30 | 461232 | +0 | 9288 / 772 (paper 6158) | 6 (paper 6) | 43.86 | 12.28 | 43.86 | 29 (28) |
+| 16 | 935255 (paper 995349) | 935223 + 32 | 998353 | +0 | 14616 / 1051 (paper 10284) | 6 (paper 6) | 44.23 | 11.53 | 44.23 | 31 (30) |
+| 17 | 2019156 (paper 2141652) | 2019122 + 34 | 2146076 | +1 | 22712 / 1409 (paper 16048) | 6 (paper 6) | 50.00 | 0.00 | 50.00 | 33 (32) |
+| 18 | 4330972 (paper 4579850) | 4330936 + 36 | 4586387 | +1 | 34748 / 1875 (paper 24762) | 6 (paper 7) | 50.00 | 0.00 | 50.00 | 35 (34) |
+  [FAIL] Table 5: P1 optimal play value N = 3..18
+  [FAIL] Table 5: state-space size (turn starts with player + terminals by (diff, last mover)) N = 3..18
+  [FAIL] Table 5: max branching factor (ordered sequences) N = 3..18
+  [FAIL] Table 5: minimal game depth N = 3..18
+  [ok] Table 5: win/tie/loss % over all N! removal orders N = 3..18
+  [FAIL] Sec. 4.3: max points of P2 on his first turn = 2N-2, N = 3..18
+
+Timing: values 0.64 s, counts 0.14 s, state spaces 0.42 s, total 1.34 s
+
+SUMMARY: FAIL (9 failed checks)
