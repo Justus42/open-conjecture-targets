@@ -1,11 +1,13 @@
 # Kourovka 20.51, Runde 1 (Stufe 0, Vortest)
 
-Der Koordinator vergibt diese Aufträge parallel. Höchstens ein halber Tag. Danach anhalten und an
-Justus berichten.
+**Reihenfolge:** R1-01 läuft allein und zuerst. Erst wenn sein Ergebnis vorliegt und keine
+Abbruchregel greift, vergibt der Koordinator R1-02 bis R1-05 parallel. Findet R1-01 ein fremdes
+Projekt, das gleich weit oder weiter ist, hält der Koordinator an und berichtet, ohne die übrigen
+Aufträge zu vergeben. Höchstens ein halber Tag. Danach anhalten und an Justus berichten.
 
-## R1-01 Stand-Wache
+## R1-01 Stand-Wache (zuerst, allein)
 
-Prüfe nach Abschnitt 7 des Protokolls. Lies den Wortlaut von 20.51 und 20.52 in der neuesten Fassung
+Prüfe nach Abschnitt 7 des Protokolls, einschließlich der Suche nach fremden Repos. Lies den Wortlaut von 20.51 und 20.52 in der neuesten Fassung
 des Kourovka-Hefts vollständig und suche dort und in der Literatur nach Teilergebnissen (MacHale,
 Buckley–MacHale, Vera-López, Arbeiten zur Klassenzahl bei ungerader Ordnung). Ergebnis nach
 `STATUS.md`.

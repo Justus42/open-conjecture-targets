@@ -1,11 +1,14 @@
 # 677 → 255, Runde 1 (Stufe 0, nur Lesen)
 
-Der Koordinator vergibt diese Aufträge parallel. In dieser Runde gibt es keinen Beweis- und keinen
+**Reihenfolge:** R1-01 läuft allein und zuerst. Erst wenn sein Ergebnis vorliegt und keine
+Abbruchregel greift, vergibt der Koordinator R1-02 bis R1-05 parallel. Ist das Problem inzwischen
+gelöst oder arbeitet jemand sichtbar mit neuem Stand daran, hält der Koordinator an und berichtet,
+ohne die übrigen Aufträge zu vergeben. In dieser Runde gibt es keinen Beweis- und keinen
 Suchversuch. Danach anhalten und an Justus berichten.
 
-## R1-01 Stand-Wache
+## R1-01 Stand-Wache (zuerst, allein)
 
-Prüfe nach Abschnitt 7 des Protokolls, zusätzlich: Klone `teorth/equational_theories` (nur lesen)
+Prüfe nach Abschnitt 7 des Protokolls, einschließlich der Suche nach fremden Repos, zusätzlich: Klone `teorth/equational_theories` (nur lesen)
 und suche dort nach allem zu 677 und 255 seit Februar 2026. Ergebnis nach `STATUS.md`.
 
 ## R1-02 Thread, erste Hälfte

@@ -31,7 +31,12 @@ Bestätigung, Unbelegtes als unbelegt kennzeichnen.
    Gelingt das nicht, endet der Auftrag mit diesem Befund. Neue Prüfwerkzeuge brauchen eine
    Negativkontrolle, die nachweislich anschlägt.
 9. Nichts nach außen: keine Mails, keine Posts, keine Issues, Kommentare oder Pull Requests in
-   fremden Repos, keine Einreichung bei Palomar. Gesperrte Domains nicht umgehen, sondern melden.
+   fremden Repos, keine Einreichung bei Palomar.
+   - Gesperrte Domains nicht umgehen: kein Spiegel, kein Cache, kein fremder Proxy. Die Sperre im
+     Bericht melden.
+   - Erlaubt ist, dieselbe Datei aus einer freigegebenen offiziellen Quelle zu laden (z. B. ein
+     Lean-Release von GitHub statt vom Lean-Server), wenn Quelle, Version und Prüfsumme im Bericht
+     stehen.
 10. Fremder Code nur mit Lizenz, die das erlaubt; Herkunft und Commit nennen. Ohne Lizenz nicht
     kopieren.
 11. Sprache: Deutsch. Ausnahme: `README.md`, Lean-Code und Programmcode sind englisch.
